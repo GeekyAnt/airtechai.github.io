@@ -1,53 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirTech AI - IT Support in Annapolis</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            color: white;
-            text-align: center;
-        }
-        .hex-bg {
-            background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
-            padding: 50px 0;
-        }
-        .logo {
-            width: 150px;
-            margin-bottom: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        .contact {
-            margin-top: 30px;
-        }
-        .contact a {
-            color: #00AEEF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirTech AI - IT Support in Annapolis (Dynamic Hex Fades)</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* RESET / BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      height: 100%;
+      font-family: "Inter", sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* CANVAS BACKGROUND */
+    #bgCanvas {
+      position: fixed; /* fixes canvas in place */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* ensures canvas is behind all content */
+      display: block;
+    }
+
+    /* MAIN CONTENT WRAPPER */
+    .content {
+      z-index: 1;
+      position: relative;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* HEADER AREA */
+    .header-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap; /* so it wraps nicely on small screens */
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 180px;
+      filter: invert(90%) sepia(10%) saturate(300%) brightness(120%) contrast(100%);
+    }
+
+    .title-container h1 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    .title-container h3 {
+      font-weight: 400;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* SHARED SECTION STYLING */
+    .section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .section h2 {
+      margin-bottom: 20px;
+    }
+
+    /* BULLET LISTS */
+    .section ul {
+      list-style-type: none;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+    .section ul li:before {
+      content: "– ";
+    }
+
+    /* BLOG POSTS */
+    .blog-post {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .blog-post h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* CONTACT LINK STYLES */
+    .contact a,
+    a[href^="mailto"] {
+      color: #00AEEF;
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="hex-bg">
-        <img src="logo.png" alt="AirTech AI Logo" class="logo">
+  <!-- CANVAS FOR BACKGROUND -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- MAIN PAGE CONTENT -->
+  <div class="content">
+    <!-- HEADER SECTION -->
+    <div class="header-section">
+      <img src="logo.svg" alt="AirTech AI Logo" class="logo" />
+      <div class="title-container">
         <h1>AirTech AI</h1>
         <h3>Data and Technology Support</h3>
         <p>Annapolis IT support, built around you.</p>
+      </div>
     </div>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>📞 Phone here </p>
-        <p>📧 <a href="mailto:contact@AirTechAI.com">contact@AirTechAI.com</a></p>
-        <p>🌐 <a href="https://airtechai.com">AirTechAI.com</a></p>
+
+    <!-- ABOUT SECTION -->
+    <div class="section">
+      <h2>About AirTech AI</h2>
+      <p>
+        AirTech AI delivers expert technical services and consultations, specializing
+        in on-demand support for servers, desktops, and networks. The company also
+        develops comprehensive training documentation and provides hands-on training
+        for technical systems.
+      </p>
+      <p>
+        With a strong foundation in IT and data industries spanning two decades and
+        two countries, AirTech AI has supported diverse sectors, including military
+        training, private business aviation, and multinational network administration.
+      </p>
+      <p>
+        Built on the principle of personalized service, AirTech AI fills the gap left
+        by larger IT providers, ensuring responsive, client-focused solutions tailored
+        to the needs of small and medium-sized businesses.
+      </p>
     </div>
+
+    <!-- SERVICES SECTION -->
+    <div class="section">
+      <h2>Our Services</h2>
+      <p>
+        I offer on-demand support and rolling support contracts for small to medium
+        businesses in the Annapolis area.
+      </p>
+      <ul>
+        <li>💻 Desktop Support: Windows, Mac, Linux</li>
+        <li>🖥️ Server Support: Windows, Linux</li>
+        <li>🔐 System Administration: Active Directory, InTune, MS Entra</li>
+        <li>🎥 AV System Support</li>
+        <li>📷 IP Camera Support</li>
+        <li>🌐 Multi-site Network Design</li>
+        <li>☁️ Cloud Solutions Transition</li>
+        <li>🔄 Cloud-to-On-Prem Transition</li>
+      </ul>
+    </div>
+
+    <!-- BLOG / TIPS SECTION -->
+    <div class="section">
+      <h2>Tech Tips & Blog</h2>
+      <div class="blog-post">
+        <h3>💡 How to Improve Your Wi-Fi Signal</h3>
+        <p>
+          Struggling with slow Wi-Fi? Try relocating your router to a central position,
+          ensuring minimal interference from walls or electronic devices. Consider
+          upgrading to a mesh network for wider coverage.
+        </p>
+      </div>
+      <div class="blog-post">
+        <h3>🔒 Why You Should Regularly Update Your Software</h3>
+        <p>
+          Keeping your software up-to-date ensures you have the latest security patches
+          and performance improvements. Automate updates where possible to keep your
+          systems secure.
+        </p>
+      </div>
+    </div>
+
+    <!-- CONTACT INFO SECTION -->
+    <div class="section contact">
+      <h2>Contact Us</h2>
+      <p>📞 temp </p>
+      <p>
+        📧 <a href="temp"</a>
+      </p>
+      <p>🌐 <a href="https://airtechai.com">AirTechAI.com</a></p>
+    </div>
+  </div>
+  <!-- end .content -->
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 AirTech AI. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JAVASCRIPT FOR STATIC HEX TILING WITH OCCASIONAL FADE/BLINK -->
+  <script>
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // We'll store each hex cell's data in an array.
+    // Each cell: { x, y, side, alpha, blinking, fadeDir }
+    let hexCells = [];
+
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    // Draw a hex with center (cx, cy), side length = cell.side, with alpha
+    // We'll do pointy-top hex orientation.
+    function drawHex(cell) {
+      const { x, y, side, alpha } = cell;
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const angleDeg = 60 * i - 90; // shift so top is pointing up
+        const angleRad = (Math.PI / 180) * angleDeg;
+        const px = x + side * Math.cos(angleRad);
+        const py = y + side * Math.sin(angleRad);
+        if (i === 0) {
+          ctx.moveTo(px, py);
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.closePath();
+      ctx.lineWidth = 1;
+      // Use the cell's alpha in strokeStyle
+      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+      ctx.stroke();
+    }
+
+    // Build the grid of hex cells
+    function buildTessellation() {
+      hexCells = [];
+
+      // side length from center to corner
+      const side = 75; // about 150 across corners
+
+      // Horizontal distance between columns: side * sqrt(3)
+      const horizSpacing = side * Math.sqrt(3);
+      // Vertical distance between rows: side * 1.5
+      const vertSpacing = side * 1.5;
+
+      // Number of columns and rows (slight overdraw)
+      const cols = Math.ceil(canvas.width / horizSpacing) + 1;
+      const rows = Math.ceil(canvas.height / vertSpacing) + 1;
+
+      for (let row = 0; row < rows; row++) {
+        const offsetX = row % 2 ? horizSpacing / 2 : 0;
+        for (let col = 0; col < cols; col++) {
+          const cx = col * horizSpacing + offsetX;
+          const cy = row * vertSpacing;
+          if (
+            cx > -side &&
+            cx < canvas.width + side &&
+            cy > -side &&
+            cy < canvas.height + side
+          ) {
+            // Each cell gets an alpha, initially ~0.1, not blinking
+            // fadeDir = 0 means not currently changing alpha
+            hexCells.push({
+              x: cx,
+              y: cy,
+              side: side,
+              alpha: 0.1 + Math.random() * 0.05, // base transparency around 0.1-0.15
+              blinking: false,
+              fadeDir: 0,
+            });
+          }
+        }
+      }
+    }
+
+    function drawBackground() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // background gradient
+      const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      grad.addColorStop(0, "#010101");
+      grad.addColorStop(1, "#000000");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Occasionally pick a random hex to fade in/out
+    // We'll do a small random chance every frame (~1% per second depending on FPS)
+    // We'll keep alpha in [0.05, 0.2].
+
+    function updateHexes() {
+      // Random chance of picking one hex to blink, if it's not already blinking
+      if (Math.random() < 0.01) {
+        const i = Math.floor(Math.random() * hexCells.length);
+        const cell = hexCells[i];
+        if (!cell.blinking) {
+          // Start blinking
+          cell.blinking = true;
+          // If alpha is near the lower bound, fade up; if near upper, fade down
+          cell.fadeDir = cell.alpha < 0.15 ? 1 : -1;
+        }
+      }
+
+      // Update blinking cells
+      for (const cell of hexCells) {
+        if (cell.blinking) {
+          // fade speed ~ 0.01 per frame
+          cell.alpha += 0.01 * cell.fadeDir;
+          // clamp alpha
+          if (cell.alpha > 0.2) {
+            cell.alpha = 0.2;
+            cell.fadeDir = -1; // go back down
+          } else if (cell.alpha < 0.05) {
+            cell.alpha = 0.05;
+            cell.fadeDir = 1; // go back up
+          }
+
+          // If alpha ~ mid range, let's optionally stop?
+          // We'll do a small chance if alpha is in [0.08..0.12].
+          if (cell.alpha >= 0.09 && cell.alpha <= 0.12 && Math.random() < 0.005) {
+            cell.blinking = false;
+            cell.fadeDir = 0;
+          }
+        }
+      }
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      drawBackground();
+      updateHexes();
+      // draw all hexes
+      for (const cell of hexCells) {
+        drawHex(cell);
+      }
+    }
+
+    window.addEventListener("resize", () => {
+      initCanvas();
+      buildTessellation();
+    });
+
+    // Initialize
+    initCanvas();
+    buildTessellation();
+    animate();
+  </script>
 </body>
 </html>
