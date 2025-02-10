@@ -38,6 +38,11 @@
             gap: 20px;
             padding: 20px;
         }
+		@media (max-width: 600px) {
+			.grid-container {
+				grid-template-columns: 1fr; /* Switch to a single-column layout */
+			}
+		}
         .grid-item {
             background: #fff;
             padding: 15px;
@@ -84,12 +89,6 @@
             <div class="grid-item">
                 <img src="assets/bestof2025.png" alt="Best of 2025" />
             </div>
-            <div class="grid-item">
-                <img src="assets/bestofqr.png" alt="Scan QR Code to Vote" />
-            </div>
-            <div class="grid-item">
-                <img src="assets/ppglogo.png" alt="Premier Planning Group Logo" />
-            </div>
             <div class="grid-item instructions">
                 <h3>How to Vote:</h3>
                 <ul>
@@ -99,6 +98,12 @@
                     <li>Select 'Premier Planning Group' and confirm your vote!</li>
                 </ul>
                 <a href="https://bestofannapolis.whatsupmag.com/retail-and-services/financial-advisor" class="cta" target="_blank">Vote for Premier Planning Group!</a>
+            </div>
+            <div class="grid-item">
+                <img src="assets/bestofqr.png" alt="Scan QR Code to Vote" />
+            </div>
+            <div class="grid-item">
+                <img src="assets/ppglogo.png" alt="Premier Planning Group Logo" />
             </div>
         </div>
     </div>
